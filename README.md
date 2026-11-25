@@ -26,3 +26,5 @@ ai-governance-gate/
 │   └── model_card_gen.py
 ├── app.py
 └── requirements.txt
+
+Try it. It looks like this -> https://ai-governance-gate-skala.streamlit.app/
