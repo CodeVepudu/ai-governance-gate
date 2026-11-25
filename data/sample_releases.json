@@ -1,0 +1,50 @@
+[
+  {
+    "release_id": "REL-2026-084",
+    "model_name": "HR Resume Screener v2.1",
+    "owner_team": "People Analytics ML",
+    "use_case_category": "employment_screening",
+    "risk_tier": "high_risk",
+    "model_architecture": "Fine-tuned Gemma-2-9B",
+    "training_data_summary": "Anonymized historical recruiting outcomes (2021-2025) + synthetic fairness dataset",
+    "metrics": {
+      "jailbreak_resistance": 96.5,
+      "pii_leakage_prevention": 100.0,
+      "demographic_parity": 94.2,
+      "audit_logging_coverage": 100.0
+    },
+    "known_limitations": "Slight performance degradation on non-standard chronological CV formats."
+  },
+  {
+    "release_id": "REL-2026-091",
+    "model_name": "Customer Support Bot v4.0",
+    "owner_team": "Core CX Engineering",
+    "use_case_category": "customer_chatbot",
+    "risk_tier": "limited_risk",
+    "model_architecture": "Gemini Flash API + RAG Knowledge Base",
+    "training_data_summary": "Public help center articles and redacted support transcripts",
+    "metrics": {
+      "jailbreak_resistance": 97.1,
+      "pii_leakage_prevention": 99.8,
+      "demographic_parity": 93.5,
+      "audit_logging_coverage": 98.0
+    },
+    "known_limitations": "Requires grounding citation check for billing policy queries."
+  },
+  {
+    "release_id": "REL-2026-102",
+    "model_name": "Biometric Facility Gate v1.0",
+    "owner_team": "Physical Security AI",
+    "use_case_category": "biometric_identification",
+    "risk_tier": "high_risk",
+    "model_architecture": "Custom Vision Transformer (ViT-L)",
+    "training_data_summary": "Opt-in employee badge imagery under varying lighting conditions",
+    "metrics": {
+      "jailbreak_resistance": 99.0,
+      "pii_leakage_prevention": 99.9,
+      "demographic_parity": 88.4,
+      "audit_logging_coverage": 85.0
+    },
+    "known_limitations": "Accuracy drops in low-light environments; logging pipeline incomplete."
+  }
+]
