@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "index": 1,
+    "timestamp_utc": "2026-11-27T14:45:28.235929+00:00",
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "evidence_sha256": "5352d68c8bf49b4a30aaf7baefc3469b1a49f13aa3e81512ac5b45858717cbde",
+    "release_id": "REL-2026-BFSI-01",
+    "model_name": "KreditScore-DE-v3.2",
+    "version": "3.2.0",
+    "risk_tier": "bfsi_high_risk",
+    "baseline_gate_status": "APPROVED",
+    "integrity_status": "FAILED_INTEGRITY",
+    "risk_score": 14.0,
+    "decision": "CONDITIONAL_APPROVAL",
+    "reviewer": "Sreedhar Kala (AI Governance Lead)",
+    "rationale": "approved",
+    "compensating_controls": [
+      "Cap automated underwriting exposure at EUR 10,000; route higher amounts to Risk Officer"
+    ],
+    "waiver_expires_utc": "2026-12-27T14:45:28.235929+00:00",
+    "entry_hash": "e78604bcf86abbab361fa1d09a6d4eaa31b1812b7fc8ac45d43d0eb801767247"
+  },
+  {
+    "index": 2,
+    "timestamp_utc": "2026-11-27T14:45:52.373752+00:00",
+    "prev_hash": "e78604bcf86abbab361fa1d09a6d4eaa31b1812b7fc8ac45d43d0eb801767247",
+    "evidence_sha256": "5352d68c8bf49b4a30aaf7baefc3469b1a49f13aa3e81512ac5b45858717cbde",
+    "release_id": "REL-2026-BFSI-01",
+    "model_name": "KreditScore-DE-v3.2",
+    "version": "3.2.0",
+    "risk_tier": "bfsi_high_risk",
+    "baseline_gate_status": "APPROVED",
+    "integrity_status": "FAILED_INTEGRITY",
+    "risk_score": 14.0,
+    "decision": "CONDITIONAL_APPROVAL",
+    "reviewer": "Sreedhar Kala (AI Governance Lead)",
+    "rationale": "approved",
+    "compensating_controls": [
+      "Cap automated underwriting exposure at EUR 10,000; route higher amounts to Risk Officer"
+    ],
+    "waiver_expires_utc": "2026-12-27T14:45:52.373752+00:00",
+    "entry_hash": "ce346cf15a1db6878f877fd640a8a2573b35eacbcd703f6ec388654204a3e593"
+  }
+]

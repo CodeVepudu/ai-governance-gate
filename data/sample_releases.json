@@ -1,50 +1,86 @@
 [
   {
-    "release_id": "REL-2026-084",
-    "model_name": "HR Resume Screener v2.1",
-    "owner_team": "People Analytics ML",
-    "use_case_category": "employment_screening",
-    "risk_tier": "high_risk",
-    "model_architecture": "Fine-tuned Gemma-2-9B",
-    "training_data_summary": "Anonymized historical recruiting outcomes (2021-2025) + synthetic fairness dataset",
+    "release_id": "REL-2026-BFSI-01",
+    "model_name": "KreditScore-DE-v3.2",
+    "model_architecture": "Gradient Boosted Decision Trees (XGBoost) + Monotonic Fairness Constraints",
+    "training_data_summary": "Anonymized retail credit repayment history across 180,000 EU/DE loan accounts (2019-2025), excluding prohibited protected attributes and audited for historical bias.",
+    "known_limitations": "Lower thin-file scoring accuracy for young borrowers (Age_18_25) with limited credit history; requires compensating controls and manual credit review.",
+    "owner": "Retail Credit Risk & Analytics (Frankfurt)",
+    "owner_team": "Retail Credit Risk & Analytics (Frankfurt)",
+    "risk_tier": "bfsi_high_risk",
+    "version": "3.2.0",
+    "evaluation_metadata": {
+      "validation_sample_size": 12400,
+      "dataset_hash": "e3b0c44298fc1c149afbf4c8996fb924",
+      "subgroups": {
+        "Age_18_25": 91.2,
+        "Age_26_60": 97.4,
+        "Age_60_Plus": 96.8,
+        "Gender_Female": 96.5,
+        "Gender_Male": 97.1
+      }
+    },
     "metrics": {
-      "jailbreak_resistance": 96.5,
-      "pii_leakage_prevention": 100.0,
-      "demographic_parity": 94.2,
+      "jailbreak_resistance": 99.1,
+      "pii_leakage_prevention": 99.95,
+      "demographic_parity": 96.4,
+      "explainability_coverage": 98.5,
       "audit_logging_coverage": 100.0
-    },
-    "known_limitations": "Slight performance degradation on non-standard chronological CV formats."
+    }
   },
   {
-    "release_id": "REL-2026-091",
-    "model_name": "Customer Support Bot v4.0",
-    "owner_team": "Core CX Engineering",
-    "use_case_category": "customer_chatbot",
+    "release_id": "REL-2026-MED-02",
+    "model_name": "CardioTriage-AI-v2.1",
+    "model_architecture": "3D Convolutional Neural Network (ResNet-50 Backbone) + Uncertainty Calibration",
+    "training_data_summary": "De-identified cardiac imaging and clinical triage records (GDPR Art. 9 compliant) from partner European hospitals under ISO 13485 data governance controls.",
+    "known_limitations": "Reduced sensitivity on elderly (Age_75_Plus) and female patient cohorts as well as sub-minimum validation sample size; requires specialist review and abstention fallback.",
+    "owner": "Clinical Diagnostics SaMD Team (Munich)",
+    "owner_team": "Clinical Diagnostics SaMD Team (Munich)",
+    "risk_tier": "medtech_high_risk",
+    "version": "2.1.4",
+    "evaluation_metadata": {
+      "validation_sample_size": 950,
+      "dataset_hash": "8f434346648f6b96df89dda901c5176b",
+      "subgroups": {
+        "Female_Patients": 90.8,
+        "Male_Patients": 97.9,
+        "Age_75_Plus": 89.4,
+        "Standard_Cohort": 97.5
+      }
+    },
+    "metrics": {
+      "jailbreak_resistance": 99.2,
+      "pii_leakage_prevention": 99.98,
+      "demographic_parity": 96.6,
+      "explainability_coverage": 92.0,
+      "audit_logging_coverage": 100.0
+    }
+  },
+  {
+    "release_id": "REL-2026-INS-03",
+    "model_name": "ClaimAssist-Bot-v1.4",
+    "model_architecture": "Instruction-Tuned Transformer LLM + Retrieval-Augmented Generation (RAG) Guardrails",
+    "training_data_summary": "Curated insurance policy documentation, German claims FAQ corpora, and synthetic red-team prompt pairs scrubbed of customer PII.",
+    "known_limitations": "Slight accuracy drop on heavy regional German dialects and non-native phrasing; does not replace binding policy coverage determinations.",
+    "owner": "Policyholder Operations (Cologne)",
+    "owner_team": "Policyholder Operations (Cologne)",
     "risk_tier": "limited_risk",
-    "model_architecture": "Gemini Flash API + RAG Knowledge Base",
-    "training_data_summary": "Public help center articles and redacted support transcripts",
+    "version": "1.4.0",
+    "evaluation_metadata": {
+      "validation_sample_size": 1800,
+      "dataset_hash": "2c26b46b68ffc68ff99b453c1d304134",
+      "subgroups": {
+        "Standard_German": 94.5,
+        "Regional_Dialects": 92.1,
+        "Non_Native_Queries": 91.0
+      }
+    },
     "metrics": {
-      "jailbreak_resistance": 97.1,
-      "pii_leakage_prevention": 99.8,
-      "demographic_parity": 93.5,
+      "jailbreak_resistance": 96.2,
+      "pii_leakage_prevention": 99.4,
+      "demographic_parity": 92.8,
+      "explainability_coverage": 85.0,
       "audit_logging_coverage": 98.0
-    },
-    "known_limitations": "Requires grounding citation check for billing policy queries."
-  },
-  {
-    "release_id": "REL-2026-102",
-    "model_name": "Biometric Facility Gate v1.0",
-    "owner_team": "Physical Security AI",
-    "use_case_category": "biometric_identification",
-    "risk_tier": "high_risk",
-    "model_architecture": "Custom Vision Transformer (ViT-L)",
-    "training_data_summary": "Opt-in employee badge imagery under varying lighting conditions",
-    "metrics": {
-      "jailbreak_resistance": 99.0,
-      "pii_leakage_prevention": 99.9,
-      "demographic_parity": 88.4,
-      "audit_logging_coverage": 85.0
-    },
-    "known_limitations": "Accuracy drops in low-light environments; logging pipeline incomplete."
+    }
   }
 ]
